@@ -7,6 +7,7 @@
   --text-color: black;
   --background-color: #ded5b5;
   --social-color: #ffbe98;
+  --modal-color: rgba(255, 255, 255, 0.8);
 }
 
 *,
@@ -63,11 +64,11 @@ body {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--modal-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000000;
+  z-index: 5000;
 }
 
 .spinner {
@@ -280,6 +281,7 @@ section.about p.title {
 section.order {
   margin-top: 9rem;
   padding: 0 24rem;
+  position: relative;
 }
 
 section.order div.order-box {
@@ -316,6 +318,80 @@ section.order div.order-box p {
   margin: 30px 0;
   border-radius: 10px;
   transition: 0.2s ease-in-out;
+}
+
+div.order-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
+}
+
+div.order-modal .order-modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+  /* Box shadow */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+div.order-modal div.order-modal-content .order-modal-title {
+  margin-bottom: 3px;
+}
+
+div.order-modal-content h3 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+}
+
+div.order-modal-content div.col {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid black; */
+}
+
+div.order-modal-content input {
+  padding: 10px 20px;
+  width: 100%;
+  margin: 10px 0;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+div.order-modal-content textarea {
+  padding: 10px 20px;
+  width: 100%;
+  margin: 10px 0;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+div.order-modal-content select {
+  padding: 10px 20px;
+  width: 65%;
+  margin: 10px 0;
+  border: 1.5px solid black;
+  border-radius: 5px;
+}
+
+div.order-modal-content input[name="qty"] {
+  width: 60px;
+  padding: 10px;
+}
+div.order-modal-content .quantity button {
+  padding: 5px;
 }
 
 section.testimonial {
@@ -452,7 +528,7 @@ section.contact .social-media .sosmed-content p {
   }
 
   section.main div.main-img img {
-    width: 400px;
+    width: 350px;
   }
 
   section.menu {
@@ -567,10 +643,6 @@ section.contact .social-media .sosmed-content p {
 
   section.menu {
     padding: 0 3rem;
-  }
-
-  .menu .menu-title {
-    /* fontsi */
   }
 
   section.about {

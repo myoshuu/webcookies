@@ -120,9 +120,43 @@
       <h2 class="order-title">Pesan Sekarang!! Orderan akan dilayani setiap hari <span class="boldItalic">Rabu</span>
         dengan metode pre-order via
         Whatsapp</h2>
-      <a href="https://wa.me/6282155275656" class="btn-order">Pesan sekarang</a>
+      <a href="#" id="openModalBtn" class="btn-order">Pesan sekarang</a>
     </div>
+
   </section>
+
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-content">
+      <div class="order-modal-title col">
+        <h3>Pesan Sekarang</h3>
+        <span id="closeModalBtn" style="font-size: 25px; cursor: pointer;">&times;</span>
+      </div>
+      <form action="" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required>
+        <div class="col">
+          <input type="text" name="nohp" placeholder="No. HP" required>
+          <input type="date" name="tanggal" id="tanggal" placeholder="tanggal" required>
+        </div>
+        <textarea type="text" name="alamat" placeholder="Alamat" required></textarea>
+        <div class="col">
+          <select name="jeniscookies" id="jeniscookies">
+            <option value="" selected>Silahkan dipilih</option>
+            <option value="Original">Original</option>
+            <option value="Cookies and Cream">Cookies and Cream</option>
+            <option value="Original Cookies and Cream (MIX)">Original Cookies and Cream (MIX)</option>
+            <option value="Melted Original">Melted Original</option>
+            <option value="Melted Cookies and Cream">Melted Cookies and Cream</option>
+          </select>
+          <div class="quantity">
+            <button type="button" id="decreaseBtn">-</button>
+            <input type="number" name="qty" placeholder="Quantity" id="quantity" value="1" readonly required>
+            <button type="button" id="increaseBtn">+</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
 
   <section class="testimonial">
     <h3 class="menu-title">Apa yang pembeli katakan</h3>
@@ -183,6 +217,7 @@
   <script src="js/slider.js"></script>
   <script src="js/mobileMenu.js"></script>
   <script src="js/lazyLoading.js"></script>
+  <script src="js/orderModal.js"></script>
 </body>
 
 </html>
