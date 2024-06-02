@@ -13,6 +13,7 @@ app.use(
     extended: true,
   })
 );
+app.use(express.static("public"));
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -24,6 +25,10 @@ const db = mysql.createConnection({
 db.connect((err) => {
   if (err) throw err;
   console.log("Database connected!");
+});
+
+app.get("/", () => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Create Data
