@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
+const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -27,8 +28,12 @@ db.connect((err) => {
   console.log("Database connected!");
 });
 
-app.get("/", () => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get("/orders", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "orders.html"));
 });
 
 // Create Data
@@ -39,54 +44,12 @@ app.post("/create", (req, res) => {
     sql,
     [nama, nohp, tanggal, alamat, jeniscookies, qty],
     (err, result) => {
-      if (err) throw err;
-      res.send("Terima kasih sudah order!");
+      if (err) return res.status(400).json({ error: err.message });
+      return res
+        .status(200)
+        .json({ message: "Terima kasih sudah membeli!", success: true });
     }
   );
-});
-
-// Read Data
-app.post("/orders", (req, res) => {
-  const sql = `SELECT * FROM orders`;
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});
-
-// Read single Data
-app.post("/order", (req, res) => {
-  const { id } = req.body;
-  const sql = `SELECT * FROM orders WHERE id = ?`;
-  db.query(sql, [id], (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});
-
-// Update Data
-app.put("/update/:id", (req, res) => {
-  const { id } = req.params;
-  const { nama, nohp, tanggal, alamat, jeniscookies, qty } = req.body;
-  const sql = `UPDATE orders SET nama = ?, nohp = ?, tanggal = ?, alamat = ?, jeniscookies = ?, qty = ? WHERE id = ?`;
-  db.query(
-    sql,
-    [nama, nohp, tanggal, alamat, jeniscookies, qty, id],
-    (err, result) => {
-      if (err) throw err;
-      res.send("Data updated!");
-    }
-  );
-});
-
-// Delete Data
-app.delete("/delete/:id", (req, res) => {
-  const { id } = req.body;
-  const sql = `DELETE FROM orders WHERE id = ?`;
-  db.query(sql, [id], (err, result) => {
-    if (err) throw err;
-    res.send("Data deleted!");
-  });
 });
 
 // Run server

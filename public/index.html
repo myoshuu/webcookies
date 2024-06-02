@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cookies</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <script src="https://kit.fontawesome.com/14cfca22c7.js" crossorigin="anonymous"></script>
 </head>
@@ -38,7 +38,6 @@
       </ul>
     </div>
   </header>
-
 
   <section class="main" id="main">
     <div class="circle"></div>
@@ -131,7 +130,7 @@
         <h3>Pesan Sekarang</h3>
         <span id="closeModalBtn" style="font-size: 25px; cursor: pointer;">&times;</span>
       </div>
-      <form action="" method="POST">
+      <form id="orderForm" action="" method="POST">
         <input type="text" name="nama" placeholder="Nama" required>
         <div class="col">
           <input type="text" name="nohp" placeholder="No. HP" required>
@@ -152,8 +151,8 @@
             <input type="number" name="qty" placeholder="Quantity" id="quantity" value="1" readonly required>
             <button type="button" id="increaseBtn">+</button>
           </div>
-
         </div>
+        <button class="order-button" type="submit">Order</button>
       </form>
     </div>
   </div>

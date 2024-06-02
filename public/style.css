@@ -394,6 +394,20 @@ div.order-modal-content .quantity button {
   padding: 5px;
 }
 
+.order-button {
+  padding: 10px 35px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  border: 2px solid var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
 section.testimonial {
   width: 80%;
   margin: 9rem auto;
